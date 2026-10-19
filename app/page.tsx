@@ -10,7 +10,6 @@ export default function Home() {
           className="rounded-xl border border-white/20 p-6 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         >
           <h2 className="text-xl">Quantum Weather App</h2>
-          <p className="mt-2 text-sm text-white/60">Current conditions and a 7-day outlook.</p>
         </Link>
       </div>
     </main>
