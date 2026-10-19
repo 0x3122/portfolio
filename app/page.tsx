@@ -11,8 +11,8 @@ export default function Home() {
         >
           <h2 className="text-xl">Quantum Weather App</h2>
         </Link>
-        <Link href="/apps/league-player" className="rounded-xl border border-white/20 p-6 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-          <h2 className="text-xl">League Player</h2>
+        <Link href="/apps/quantum-opgg" className="rounded-xl border border-white/20 p-6 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+          <h2 className="text-xl">Quantum OPGG</h2>
         </Link>
       </div>
     </main>

@@ -54,7 +54,7 @@ export default function Player() {
           </>}
           {(error || championError) && <button onClick={() => { setError(""); setChampionError(""); setRetry(n => n + 1); }} className="mt-5 rounded-xl bg-violet-300 px-6 py-3 font-medium text-slate-950">Try again</button>}
         </div>
-        <footer className="mt-12 border-t border-white/10 pt-5 text-xs leading-relaxed text-slate-500">League Player isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</footer>
+        <footer className="mt-12 border-t border-white/10 pt-5 text-xs leading-relaxed text-slate-500">Quantum OPGG isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</footer>
       </div>
     </main>
   );
