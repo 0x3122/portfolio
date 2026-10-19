@@ -27,8 +27,8 @@ Use feature branches and pull requests for major changes. Never commit secrets o
 
 ## Quantum Weather App
 
-City search and a seven-day Celsius forecast use Open-Meteo directly from the browser, with no API key. Melbourne is the default city. Current location is optional and requires browser permission and HTTPS (or localhost); city search works on the local Wi-Fi preview. Coordinates are sent to Open-Meteo only after choosing the location button.
+City search and a seven-day Celsius forecast use Open-Meteo through the app’s server routes, with no API key. Melbourne is the default city. Current location is optional and requires browser permission and HTTPS (or localhost); city search works on the local Wi-Fi preview. Coordinates are sent to Open-Meteo only after choosing the location button.
 
-Forecast requests time out after 12 seconds and provide retry and clearly labelled sample-preview options. Sample values are never presented as real weather. The free service is intended for non-commercial use; review Open-Meteo terms before commercial use.
+Forecast requests time out after 25 seconds and provide retry and clearly labelled sample-preview options. Sample values are never presented as real weather. The free service is intended for non-commercial use; review Open-Meteo terms before commercial use.
 
-Validation: lint, TypeScript, production build, mobile and desktop browser checks, navigation, search validation, timeout/retry and sample forecast rendering. Live API calls could not be verified in the development environment because the API hostname failed DNS resolution.
+Validation: lint, TypeScript, production build, mobile and desktop browser checks, navigation, search validation, timeout/retry and sample forecast rendering. Live Melbourne forecasts and Sydney city-search responses were verified through the local server. Server requests use system DNS first, with a scoped Google HTTPS DNS fallback when resolution fails. Resolved addresses respect DNS TTLs (up to five minutes), and upstream TLS certificate validation remains enabled.

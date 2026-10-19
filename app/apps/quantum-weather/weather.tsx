@@ -40,7 +40,7 @@ export default function Weather() {
   useEffect(() => {
     const controller = new AbortController();
     const params = new URLSearchParams({ latitude: String(place.latitude), longitude: String(place.longitude), current: "temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code", daily: "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max", timezone: "auto", forecast_days: "7" });
-    fetch(`https://api.open-meteo.com/v1/forecast?${params}`, { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(12000)]) })
+    fetch(`/api/weather?${params}`, { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(25000)]) })
       .then(async response => { if (!response.ok) throw new Error(); return response.json(); })
       .then(data => { if (!data.current || data.daily?.time?.length !== 7) throw new Error(); setForecast(data); })
       .catch(() => { if (!controller.signal.aborted) setError("Weather is unavailable right now. Please try again."); })
@@ -60,7 +60,7 @@ export default function Weather() {
     if (query.trim().length < 2) { setSearchError("Enter at least two letters of a city name."); return; }
     setSearching(true);
     try {
-      const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?${new URLSearchParams({ name: query.trim(), count: "5", language: "en", format: "json" })}`, { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(12000)]) });
+      const response = await fetch(`/api/cities?${new URLSearchParams({ name: query.trim(), count: "5", language: "en", format: "json" })}`, { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(25000)]) });
       if (!response.ok) throw new Error();
       const data = await response.json();
       setResults(data.results ?? []);
